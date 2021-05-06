@@ -27,6 +27,7 @@ end
 % Plot results
 t = linspace(-2, 2, 100);
 pred = Theta(1) + Theta(2)*t + Theta(3)*t.^2 + Theta(4)*t.^3;
+subplot(1,2,1);
 plot(t, pred, 'r')
 hold on;
 color = [31/256, 119/256, 180/256];
@@ -39,4 +40,7 @@ leg = legend(strcat("Curve: y =  " , num2str(Theta(4)) , "x^3 " , num2str(Theta(
 set(name, "fontsize", 20);
 set(leg, "fontsize", 16);
 
-%plot(J_list)
+subplot(1,2,2);
+plot(J_list(:,2:end));
+name = title("Cost function after x iterations");
+set(name, "fontsize", 20);
